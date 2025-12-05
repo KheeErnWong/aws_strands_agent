@@ -1,0 +1,18 @@
+repos:
+  # 1. Trivial and Basic Checks (Trailing whitespace, file endings, syntax)
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0 # Always use a pinned, recent version
+    hooks:
+      - id: trailing-whitespace   # Removes superfluous whitespace at line endings
+      - id: end-of-file-fixer     # Ensures a file ends with a single newline
+      - id: check-yaml            # Checks YAML files for valid syntax
+      - id: check-added-large-files # Prevents committing files over 500KB
+      - id: debug-statements      # Catches accidental `import pdb` or `breakpoint()` calls
+
+  # 2. Linting and Formatting (Ruff is extremely fast and combines Black/Flake8 functionality)
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.4.4 # Use a recent ruff version
+    hooks:
+      - id: ruff                  # 2. Linter and Syntax Checker
+        args: [ --fix ]           # Automatically fix most fixable errors
+      - id: ruff-format           # 1. Code Formatter (Black replacement)
