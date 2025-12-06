@@ -8,8 +8,8 @@ from strands.tools.executors import ConcurrentToolExecutor
 from strands_tools import tavily_search
 
 # Custom tools
-from research_assistant.tools.note_taker import save_note, list_notes
-from research_assistant.tools.report_generator import generate_report
+from research_assistant.tools import save_note, list_notes
+from research_assistant.tools import generate_report
 
 # Hooks
 from research_assistant.hooks.logging_hook import ToolLoggingHook
