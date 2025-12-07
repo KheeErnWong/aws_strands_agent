@@ -9,7 +9,7 @@ NOTES_DIR = Path("./outputs/notes")
 @tool
 def save_note(topic: str, content: str, tags: list[str] = None) -> str:
     """
-    Save a research note to persistant storage.
+    Save a research note to persistent storage.
 
     Use this to record important findings, summaries, or insights
     that should be preserved for the final report.
@@ -20,7 +20,7 @@ def save_note(topic: str, content: str, tags: list[str] = None) -> str:
         tags: Optional list of tags for categorization
 
     Returns:
-        Confirmation message with the saved noted ID
+        Confirmation message with the saved note ID
     """
     NOTES_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -46,7 +46,7 @@ def list_notes(tag_filter: str = None) -> str:
     Use this to review what notes have been collected before generating a report.
 
     Args:
-        tag_filer: Optional tag to filter notes by
+        tag_filter: Optional tag to filter notes by
 
     Returns:
         Formatted list of notes with their topics, IDs and preview

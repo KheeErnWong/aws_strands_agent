@@ -38,7 +38,7 @@ def generate_report(
     for i, section in enumerate(sections, start=1):
         content += f"## Section {i}\n\n{section}\n\n"
 
-    content += f"## COnclusion\n\n{conclusion}\n\n"
+    content += f"## Conclusion\n\n{conclusion}\n\n"
 
     # Optionally include notes
     if include_notes and NOTES_DIR.exists():

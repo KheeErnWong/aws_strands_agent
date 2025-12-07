@@ -1,4 +1,4 @@
 from .logging_hook import ToolLoggingHook
-from .rate_limiter import RateLimiterHook
+from .rate_limiter import RateLimitHook
 
-__all__ = ["ToolLoggingHook", "RateLimiterHook"]
+__all__ = ["ToolLoggingHook", "RateLimitHook"]

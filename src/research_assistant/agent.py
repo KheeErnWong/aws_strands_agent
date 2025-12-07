@@ -39,7 +39,7 @@ def create_agent(session_id: str = "default") -> Agent:
     return Agent(
         # Model configuration
         model=BedrockModel(model_id="anthropic.claude-sonnet-4-20250514"),
-        # System promt
+        # System prompt
         system_prompt=SYSTEM_PROMPT,
         # Specify tools
         tools=[tavily_search, save_note, list_notes, generate_report],
@@ -47,18 +47,18 @@ def create_agent(session_id: str = "default") -> Agent:
         # Keeps last 40 messages (user + assistant combined)
         # Drops oldest when exceeded, preserves tool call pairs
         conversation_manager=SlidingWindowConversationManager(window_size=40),
-        # Session persistance.
+        # Session persistence.
         # Specify conversation thread. Different id = fresh conversation.
         session_manager=FileSessionManager(session_id=session_id),
         # Hooks for logging and rate limiting
         hooks=[ToolLoggingHook(), RateLimitHook(limits={"tavily_search": 10})],
-        # Structure output schema (default for all calss)
+        # Structure output schema (default for all calls)
         structured_output_model=ResearchOutput,
         # Agent identity
         agent_id="research-assistant",
         name="Research Assistant",
         description="Searches and summarizes research topics",
-        # Persistant state across session
+        # Persistent state across session
         state={"topics_researched": [], "total_searches": 0},
         # Callbacks. For displaying/streaming output as the agent runs
         callback_handler=None,
@@ -66,5 +66,5 @@ def create_agent(session_id: str = "default") -> Agent:
         tool_executor=ConcurrentToolExecutor(),
         # Misc
         record_direct_tool_call=True,  # Log tool calls in message history
-        load_tools_from_directory=False,  # Don;t auto-load from ./tools/
+        load_tools_from_directory=False,  # Don't auto-load from ./tools/
     )
