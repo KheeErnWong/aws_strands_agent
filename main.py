@@ -1,8 +1,12 @@
+from dotenv import load_dotenv
+
 import asyncio
 import sys
 from pathlib import Path
 
 from research_assistant.agent import create_agent
+
+load_dotenv()
 
 
 def list_session(sessions_dir: str = "./session") -> list[str]:
